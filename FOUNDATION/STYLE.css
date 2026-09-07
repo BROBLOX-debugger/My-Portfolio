@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-black: #0a0a0a;
+    --bg-warm: #1a1200;
+    --gold: #ffc06e;
+    --gold-light: #ffdf9e;
+    --gold-deep: #ffad4a;
+    --card-1: #1a1a0f;
+    --card-2: #111108;
+    --text-white: #ffffff;
+    --text-muted: #a07840;
+    --text-dim: #888;
+    --border-gold: rgba(255, 192, 110, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-white);
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at top left, rgba(255, 192, 110, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(255, 192, 110, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, var(--bg-black) 0%, var(--bg-warm) 50%, var(--bg-black) 100%);
+    background-attachment: fixed;
+    position: relative;
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== NAV ===== */
+nav {
+    margin: 0 0 3em 0;
+    width: 100%;
+    background: linear-gradient(145deg, var(--card-1), var(--card-2));
+    border-bottom: 1px solid var(--border-gold);
+    padding: 1em min(2em, 8%);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 2em;
+    width: min(1000px, 100%);
+    margin: 0 auto;
+}
+
+nav li:first-child {
+    margin-right: auto;
+    font-family: 'Merriweather', Poppins;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: .92rem;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* ===== HEADER / SECTION CARDS ===== */
+header, section {
+    margin: 2em auto;
+    width: min(75em, 100%);
+    background: linear-gradient(145deg, var(--card-1), var(--card-2));
+    border: 1px solid var(--border-gold);
+    padding: min(2.5em, 15%);
+    border-radius: 1em;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+header::before, section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    border-radius: 1px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3em;
+    max-width: 60em;
+    margin: 0 auto;
+}
+
+header img {
+    max-width: 100%;
+    width: 280px;
+    height: 280px;
+    border-radius: 1em;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-gold);
+    flex-shrink: 0;
+}
+
+.text-container {
+    flex: 0 1 34em;
+}
+
+h1 {
+    font-size: 2.4rem;
+    line-height: 1.25;
+}
+
+.text-container p {
+    margin: .75em 0 1em 0;
+    font-size: 1.1rem;
+    color: #d8d0c4;
+    line-height: 1.7;
+}
+
+.cta-button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--bg-black);
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+    padding: .75em 1.25em;
+    border-radius: .5em;
+    font-weight: 700;
+    transition: opacity 200ms ease, transform 100ms ease;
+}
+
+.cta-button:hover {
+    opacity: .9;
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+.secondary {
+    background: transparent;
+    border: 1px solid var(--border-gold);
+    color: var(--gold);
+}
+
+section {
+    padding: 3em min(2em, 15%);
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: .5em;
+}
+
+section p {
+    margin-top: 1em;
+    font-size: 1.1rem;
+    color: #d8d0c4;
+    line-height: 1.7;
+}
+
+section#my-work {
+    background: linear-gradient(145deg, var(--card-1), var(--card-2));
+}
+
+/* ===== ACHIEVEMENTS GRID ===== */
+.grid-container {
+    margin: 3em auto;
+    display: grid;
+    width: 100%;
+    max-width: 900px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 150px 150px;
+    grid-template-areas:
+        "img-1 img-1 img-2 img-3"
+        "img-1 img-1 img-4 img-5";
+    gap: 1em;
+}
+
+.grid-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: .5em;
+    border: 1px solid var(--border-gold);
+    transition: transform 200ms ease;
+    display: block;
+}
+
+.grid-container img:hover {
+    transform: scale(1.05);
+}
+
+.img-1 { grid-area: img-1; }
+.img-2 { grid-area: img-2; }
+.img-3 { grid-area: img-3; }
+.img-4 { grid-area: img-4; }
+.img-5 { grid-area: img-5; }
+
+/* ===== BOOKING FORM ===== */
+.booking-form {
+    max-width: 500px;
+    margin: 2em auto 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+}
+
+.form-group label {
+    font-weight: 500;
+    font-size: .75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.form-group input {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-gold);
+    border-radius: .5em;
+    color: var(--text-white);
+    padding: .75em 1em;
+    font-family: 'Poppins', sans-serif;
+    font-size: .95rem;
+    transition: border-color 200ms ease, background 200ms ease;
+}
+
+.form-group input::placeholder {
+    color: #555;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--gold);
+    background-color: rgba(255, 192, 110, 0.05);
+}
+
+.booking-form button {
+    align-self: center;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+#booking-status {
+    text-align: center;
+    font-weight: 600;
+    margin-top: .5em;
+}
+
+/* ===== FAQ SECTION ===== */
+details {
+    max-width: 700px;
+    margin: 1em auto;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: .75em;
+    padding: 1.25em 1.5em;
+    border-left: 3px solid var(--gold);
+    border-top: 1px solid var(--border-gold);
+    border-right: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+details:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+summary {
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--text-white);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    transition: transform 200ms ease;
+    margin-left: 1em;
+}
+
+details[open] summary::after {
+    transform: rotate(45deg);
+}
+
+details p {
+    margin-top: .75em;
+    font-size: 1.05rem;
+    color: #c8c0b4;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    width: min(75em, 100%);
+    margin: 2em auto 1em auto;
+    padding: 2em min(2em, 15%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    background: linear-gradient(145deg, var(--card-1), var(--card-2));
+    border: 1px solid var(--border-gold);
+    border-radius: 1em;
+}
+
+footer a {
+    color: var(--gold-light);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+footer p {
+    font-size: .85rem;
+    color: var(--text-dim);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+    .flex-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text-container {
+        flex: 1 1 100%;
+    }
+
+    header img {
+        margin: 0 auto;
+    }
+}
